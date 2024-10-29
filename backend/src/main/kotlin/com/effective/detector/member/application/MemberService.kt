@@ -40,7 +40,7 @@ class MemberService(
         }
         return LoginMemberResponse(
             id = member.id,
-            name = member.name,
+            name = member.memberHospitals.first().hospital.name,
             memberRole = member.memberRole,
             accessToken = accessToken,
             hospitalId = member.memberHospitals.map { it.hospital.id!! },

@@ -136,7 +136,11 @@ class AccidentService(
 
         val malfunctionAccidentCount = accidentRepository.getMalfunctionAccidentCount(currentYear)
         val detectionAccuracy = if (totalAccidentCount > 0) {
-            (malfunctionAccidentCount.toDouble() / totalAccidentCount) * 100
+            if (malfunctionAccidentCount == 0L) {
+                100.0
+            } else {
+                (malfunctionAccidentCount.toDouble() / totalAccidentCount) * 100
+            }
         } else {
             0.0
         }
@@ -172,7 +176,11 @@ class AccidentService(
         val malfunctionAccidentCount =
             accidentRepository.getMalfunctionAccidentCountByHospitalId(hospitalId, currentYear)
         val detectionAccuracy = if (totalAccidentCount > 0) {
-            (malfunctionAccidentCount.toDouble() / totalAccidentCount) * 100
+            if (malfunctionAccidentCount == 0L) {
+                100.0
+            } else {
+                (malfunctionAccidentCount.toDouble() / totalAccidentCount) * 100
+            }
         } else {
             0.0
         }
