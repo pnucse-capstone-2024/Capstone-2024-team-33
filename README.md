@@ -34,7 +34,7 @@
 ### 2.4 전체 인프라 구조도
 
 <div align = "center">
-    <img src="images/전체-인프라-구조도.png" alt="전체 인프라 구조도" width="800" />
+    <img src="images/전체-인프라-구조도.png" alt="전체 인프라 구조도" width="600" />
 </div>
 
 ### 2.5 데이터베이스 다이어그램
