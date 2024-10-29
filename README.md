@@ -1,205 +1,184 @@
-# Template for Capstone
-이 레파지토리는 학생들이 캡스톤 프로젝트 결과물을 위한 레파지토리 생성시에 참고할 내용들을 담고 있습니다.
-1. 레파지토리 생성
-2. 레파지토리 구성
-3. 레파지토리 제출 
-4. README.md 가이드라인
-5. README.md 작성팁
+## 1. 프로젝트 소개
 
----
+### 1.1 배경 및 필요성
 
-## 1. 레파지토리 생성
-- [https://classroom.github.com/a/NJK_cPkH](https://classroom.github.com/a/NJK_cPkH)
-- 위 Github Classroom 링크에 접속해 본인 조의 github 레파지토리를 생성하세요.
-<img src="https://github.com/user-attachments/assets/b5a7f34a-e146-4253-b57d-672737a75a50" alt="깃헙 클래스룸 레포 생성" width="600" />
+ 최근 3년간 요양병원에서 발생한 환자 안전사고를 유형별로 분류한 결과, 낙상이 절반 이상을 차지하였으며, 중증 및 사망으로 이어지는 비율 또한 낙상에서 가장 높았다. 골든아워를 지키기 위해 신속하게 사고 발생 여부를 파악하는 것은 중요하나, 모니터링을 위해 RGB 카메라를 이용할 경우 환자의 사생활 침해 문제가 발생한다. 현재 사용되고 있는 시스템들은 mmWave 레이더 센서를 이용하고 있으나, 측정 범위가 약 4m에 불과하여 장비 구축 비용이 많이 발생한다. 또한 mmWave 레이더 센서를 통하여 얻은 포인트 클라우드로는 사고 발생 및 대처 과정을 해석하기 어렵다는 문제가 있다. 이러한 문제를 해결하기 위해 열화상 카메라를 이용하여 사고 발생 상황을 녹화하고, 음향을 이용하여 넓은 지역을 모니터링하는 시스템을 제안한다.
 
-- 레포지토리 생성 시 팀명은 `TEAM-{조 번호}` 형식으로 생성하세요.
-- 예를 들어, 2024년도 3조의 팀명은 `TEAM-03` 입니다.
-- 이 경우 `Capstone2024-TEAM-03`이란 이름으로 레파지토리가 생성됩니다.
+### 1.2 목표 및 주요 내용
 
----
+열화상 동영상과 음향 정보를 이용하는 멀티모달 AI를 통해 실시간으로 노인복지시설의 안전사고 발생 여부를 파악하고, 보호자 및 병원 관계자에게 사고 과정을 스트리밍하며, 안전사고 통계를 제공하는 플랫폼을 개발한다.
 
-## 2. 레파지토리 구성
-- 레파지토리 내에 README.md 파일 생성하고 아래의 가이드라인과 작성팁을 참고하여 README.md 파일을 작성하세요. (이 레파지토리의 SAMPLE_README.md 참조)
-- 레파지토리 내에 docs 디렉토리를 생성하고 docs 디렉토리 내에는 과제 수행 하면서 작성한 각종 보고서, 발표자료를 올려둡니다. (이 레파지토리의 docs 디렉토리 참조)
-- 그 밖에 레파지토리의 폴더 구성은 과제 결과물에 따라 자유롭게 구성하되 가급적 코드의 목적이나 기능에 따라 디렉토리를 나누어 구성하세요.
+## 2. 상세설계
 
----
+### 2.1 사용 기술
 
-## 3. 레파지토리 제출 
+<div align = "center">
+    <img src="images/사용기술.png" alt="사용 기술" width="600" />
+</div>
 
-- **`[주의]` 레파지토리 제출**은 해당 레파지토리의 ownership을 **학과 계정**으로 넘기는 것이므로 되돌릴 수 없습니다.
-- **레파지토리 제출** 전, 더 이상 수정 사항이 없는지 다시 한번 확인하세요.
-- github 레파지토리에서 Settings > General > Danger zone > Transfer 클릭
-  <img src="https://github.com/user-attachments/assets/cb2361d4-e07e-4b5d-9116-aa80dddd8a8b" alt="소유주 변경 경로" width="500" />
+### 2.2 데이터 흐름도
+
+<div align = "center">
+    <img src="images/데이터-흐름도.png" alt="데이터 흐름도" width="500" />
+</div>
+
+### 2.3 이미지 스트리밍 설계
+
+<div align = "center">
+    <img src="images/이미지-스트리밍-설계.png" alt="이미지 스트리밍 설계" width="500" />
+ <br>
+    병실 카메라로 촬영된 영상 데이터가 클라이언트에게 도달하기까지의 과정을 요약한 흐름도입니다.
+</div>
+
+
+### 2.4 전체 인프라 구조도
+
+<div align = "center">
+    <img src="images/전체-인프라-구조도.png" alt="전체 인프라 구조도" width="600" />
+</div>
+
+### 2.5 데이터베이스 다이어그램
+
+<div align = "center">
+    <img src="images/데이터베이스-다이어그램.png" alt="데이터베이스 다이어그램" width="500" />
+</div>
+
+### 2.6 API 목록
+
+<div align = "center">
+    <img src="images/API-목록.png" alt="API 목록" width="600" />
+</div>
+
+## 3. 설치 및 사용 방법
+
+### 3.1 웹 서비스 이용
+
+> 📎 서비스 URL : https://teameffective.link
+ 
+1. 위 서비스에 접속하여 **로그인 페이지**로 이동합니다.
+
+<div align = "center">
+    <img src="images/로그인-페이지.png" alt="로그인 페이지" width="500" />
+</div>
   
-- [ Specify an organization or username ]에 'PNUCSE'를 입력하고 확인 메세지를 입력하세요.
-  <img src="https://github.com/user-attachments/assets/7c63955d-dcfe-4ac3-bdb6-7d2620575f3a" alt="소유주 변경" width="400" />
+2. 시연을 위한 테스트 계정에 로그인합니다.(ID : `admin1234` | PWD : `Test1234!`)
 
----
+  
+3. 로그인 후 메인페이지에서 실시간 모니터링 화면을 조회할 수 있습니다.
 
-## 4. README.md 가이드 라인
-- README 파일 작성시에 아래의 5가지 항목의 내용은 필수적으로 포함해야 합니다.
-- 아래의 5가지 항목이외에 프로젝트의 이해를 돕기 위한 내용을 추가해도 됩니다.
-- SAMPLE_README.md 이 단순한 형태의 예제이니 참고하세요.
+<div align = "center">
+    <img src="images/모니터링-페이지.png" alt="모니터링 페이지" width="500" />
+</div>
 
-```markdown
-### 1. 프로젝트 소개
-#### 1.1. 배경 및 필요성
-> 프로젝트를 실행하게 된 배경 및 필요성을 작성하세요.
+### 3.2 전체 동작 확인
 
-#### 1.2. 목표 및 주요 내용
-> 프로젝트의 목표 및 주요 내용을 작성하세요.
+AI 서버로 사용할 컴퓨터에서는 `ai/ai_server`를 이용합니다.
 
-### 2. 상세설계
-#### 2.1. 시스템 구성도
-> 시스템 구성도(infra, front, back등의 node 간의 관계)의 사진을 삽입하세요.
+**1. 아래 명령어를 이용하여 Python 라이브러리를 설치합니다.**
 
-#### 2.1. 사용 기술
-> 스택 별(backend, frontend, designer등) 사용한 기술 및 버전을 작성하세요.
-> 
-> ex) React.Js - React14, Node.js - v20.0.2
-
-### 3. 설치 및 사용 방법
-> 제품을 설치하기 위헤 필요한 소프트웨어 및 설치 방법을 작성하세요.
->
-> 제품을 설치하고 난 후, 실행 할 수 있는 방법을 작성하세요.
-
-### 4. 소개 및 시연 영상
-> 프로젝트에 대한 소개와 시연 영상을 넣으세요.
-
-### 5. 팀 소개
-> 팀원 소개 & 구성원 별 역할 분담 & 간단한 연락처를 작성하세요.
+```
+pip install -r requirements.txt
 ```
 
-## 5. README.md 작성팁 
-* 마크다운 언어를 이용해 README.md 파일을 작성할 때 참고할 수 있는 마크다운 언어 문법을 공유합니다.  
-* 다양한 예제와 보다 자세한 문법은 [이 문서](https://www.markdownguide.org/basic-syntax/)를 참고하세요.
+**2. 아래 명령어를 통해 FastAPI 서버를 실행합니다.**
 
-### 5.1. 헤더 Header
 ```
-# This is a Header 1
-## This is a Header 2
-### This is a Header 3
-#### This is a Header 4
-##### This is a Header 5
-###### This is a Header 6
-####### This is a Header 7 은 지원되지 않습니다.
+uvicorn main:app —reload —host=192.168.0.118
 ```
-<br />
 
-### 5.2. 인용문 BlockQuote
+**3. 데이터를 FastAPI 서버로 전송합니다.**
+
+(1) 열화상 동영상 데이터 전송
+
+열화상 카메라가 연결된 컴퓨터에서는 `ai/ai_client`를 이용합니다. 
+
+아래 명령어를 이용하면 예시로 설정한 5개의 정상/낙상 동영상이 FastAPI 서버로 전송됩니다.
+
 ```
-> This is a first blockqute.
->	> This is a second blockqute.
->	>	> This is a third blockqute.
+python3 thermal_post.py
 ```
-> This is a first blockqute.
->	> This is a second blockqute.
->	>	> This is a third blockqute.
-<br />
 
-### 5.3. 목록 List
-* **Ordered List**
+(2) 음향 데이터 전송
+
+마이크가 연결된 컴퓨터에서는 `ai/ai_client`를 이용합니다. 
+
+아래 명령어를 이용하면 예시로 설정한 5개의 정상/낙상 음향이 FastAPI 서버로 전송됩니다.
+
 ```
-1. first
-2. second
-3. third  
+python3 audio_post.py
 ```
-1. first
-2. second
-3. third
-<br />
 
-* **Unordered List**
-```
-* 하나
-  * 둘
+**4. FastAPI 서버에서 정상/낙상을 분류하고, 결과값과 이미지 데이터를 Spring 서버로 전송합니다.**
 
-+ 하나
-  + 둘
+<div align = "center">
+    <img src="images/결과.png" alt="결과" width="500" />
+ <br>
+ 웹에서 결과를 확인할 수 있습니다.
+</div>
 
-- 하나
-  - 둘
-```
-* 하나
-  * 둘
+## 4. 소개 및 시연 영상
 
-+ 하나
-  + 둘
+<div align = "center">
+    <a href="https://www.youtube.com/watch?v=ihxxosi-OPk">
+        <img src="http://img.youtube.com/vi/ihxxosi-OPk/0.jpg" alt="2024 전기 졸업과제 팀 Effective" width="500" />
+    </a>
+</div>
 
-- 하나
-  - 둘
-<br />
+## 5. 팀 소개
 
-### 5.4. 코드 CodeBlock
-* 코드 블럭 이용 '``'
-```
-여러줄 주석 "```" 이용
-"```
-#include <stdio.h>
-int main(void){
-  printf("Hello world!");
-  return 0;
-}
-```"
-
-단어 주석 "`" 이용
-"`Hello world`"
-
-* 큰 따움표(") 없이 사용하세요.
-``` 
-<br />
-
-### 5.5. 링크 Link
-```
-[Title](link)
-[부산대학교 정보컴퓨터공학부](https://cse.pusan.ac.kr/cse/index..do)
-
-<link>
-<https://cse.pusan.ac.kr/cse/index..do>
-``` 
-[부산대학교 정보컴퓨터공학부](https://cse.pusan.ac.kr/cse/index..do)
-
-<https://cse.pusan.ac.kr/cse/index..do>
-<br />
-
-### 5.6. 강조 Highlighting
-```
-*single asterisks*
-_single underscores_
-**double asterisks**
-__double underscores__
-~~cancelline~~
-```
-*single asterisks* <br />
-_single underscores_ <br />
-**double asterisks** <br />
-__double underscores__ <br />
-~~cancelline~~  <br />
-<br />
-
-### 5.7. 이미지 Image
-```
-<img src="image URL" width="600px" title="Title" alt="Alt text"></img>
-![Alt text](image URL "Optional title")
-```
-- 웹에서 작성한다면 README.md 내용 안으로 이미지를 드래그 앤 드롭하면 이미지가 생성됩니다.
-- 웹이 아닌 로컬에서 작성한다면, github issue에 이미지를 드래그 앤 드롭하여 image url 을 얻을 수 있습니다. (URL만 복사하고 issue는 제출 안 함.)
-  <img src="https://github.com/user-attachments/assets/0fe3bff1-7a2b-4df3-b230-cac4ef5f6d0b" alt="이슈에 image 올림" width="600" />
-  <img src="https://github.com/user-attachments/assets/251c6d42-b36b-4ad4-9cfa-fa2cc67a9a50" alt="image url 복사" width="600" />
-
-
-### 5.8. 유튜브 영상 추가
-```markdown
-[![영상 이름](유튜브 영상 썸네일 URL)](유튜브 영상 URL)
-[![부산대학교 정보컴퓨터공학부 소개](http://img.youtube.com/vi/zh_gQ_lmLqE/0.jpg)](https://www.youtube.com/watch?v=zh_gQ_lmLqE)    
-```
-[![부산대학교 정보컴퓨터공학부 소개](http://img.youtube.com/vi/zh_gQ_lmLqE/0.jpg)](https://www.youtube.com/watch?v=zh_gQ_lmLqE)    
-
-- 이때 유튜브 영상 썸네일 URL은 유투브 영상 URL로부터 다음과 같이 얻을 수 있습니다.
-
-- `Youtube URL`: https://www.youtube.com/watch?v={동영상 ID}
-- `Youtube Thumbnail URL`: http://img.youtube.com/vi/{동영상 ID}/0.jpg 
-- 예를 들어, https://www.youtube.com/watch?v=zh_gQ_lmLqE 라고 하면 썸네일의 주소는 http://img.youtube.com/vi/zh_gQ_lmLqE/0.jpg 이다.
-
+<div align = "center">
+    <img src="images/팀소개.png" alt="팀소개" width="500" />
+    <br>
+   <table>
+      <tr>
+          <th style="text-align: center;">이름</th>
+          <th style="text-align: center;">이메일</th>
+          <th style="text-align: center;">역할</th>
+      </tr>
+      <tr>
+          <td align = "center">
+              <a href="https://github.com/is-jang">
+                  <img src="https://github.com/is-jang.png" width="150" />
+              </a><br>
+              <strong >장인성</strong>
+          </td>
+          <td style="text-align: center;"><a href="mailto:wkddlstjd2@gmail.com">wkddlstjd2@gmail.com</a></td>
+          <td>
+              - [AI] 딥러닝 모델 학습 및 최적화<br>
+              - [AI] FastAPI 서버 구축 및 모델 서빙<br>
+              - [H/W] RPi, Jetson 환경 구축 및 포트포워딩 설정
+          </td>
+      </tr>
+      <tr>
+          <td align = "center">
+              <a href="https://github.com/shkisme">
+                  <img src="https://github.com/shkisme.png" width="150" />
+              </a><br>
+              <strong>손현경</strong>
+          </td>
+          <td style="text-align: center;"><a href="mailto:shkisme0130@gmail.com">shkisme0130@gmail.com</a></td>
+          <td>
+              - [백엔드] Kotlin + Spring 서버 구축 및 서비스 API 개발<br>
+              - [백엔드] WebSocket을 활용한 이미지 스트리밍 및 S3 영상 저장 기능 개발<br>
+              - [인프라] 백엔드 서버 배포 (<a href="https://api.teameffective.link">https://api.teameffective.link</a>)<br>
+              - [인프라] ECS, ECR, ALB 등 AWS 리소스 구축 및 관리<br>
+              - [인프라] GitHub Action을 활용한 CICD 배포 자동화
+          </td>
+      </tr>
+      <tr>
+          <td align = "center">
+              <a href="https://github.com/amaran-th">
+                  <img src="https://github.com/amaran-th.png" width="150" />
+              </a><br>
+              <strong>송세연</strong>
+          </td>
+          <td style="text-align: center;"><a href="mailto:songsy405@naver.com">songsy405@naver.com</a></td>
+          <td>
+              - [기획] 웹 서비스 세부 요구사항 기획<br>
+              - [디자인] 웹 서비스 UI/UX 디자인<br>
+              - [프론트엔드] 웹 서비스 클라이언트 개발 (TypeScript & React)<br>
+              - [인프라] 웹 서비스 클라이언트 서비스 배포 (<a href="https://teameffective.link">https://teameffective.link</a>)
+          </td>
+      </tr>
+  </table>
+</div>
